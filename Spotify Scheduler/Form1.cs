@@ -212,7 +212,7 @@ namespace Spotify_Scheduler
 
         //function for do play or pause and verifying the connection before
         //this code now is a mess because always give me error or stop working without reason
-        private void Procesos(string Proceso, String Hora)
+        private async void Procesos(string Proceso, String Hora)
         {
             if (Proceso == "play")
             {
@@ -220,13 +220,15 @@ namespace Spotify_Scheduler
                 if (successful)
                 {
                     //call the click button action from playbtn
-                    playBtn_Click(new object(), new EventArgs());
+                    //playBtn_Click(new object(), new EventArgs());
+                    await _spotify.Play();
                     listBox1.Items.Add("Play - Conectado a " + Hora);
                 }
                 else
                 {
                     //call the click button action from playbtn
-                    playBtn_Click(new object(), new EventArgs());
+                    //playBtn_Click(new object(), new EventArgs());
+                    await _spotify.Play();
                     listBox1.Items.Add("Play - ReConectado a " + Hora);
                 }
             }
@@ -236,13 +238,15 @@ namespace Spotify_Scheduler
                 if (successful)
                 {
                     //call the click button action from pausebtn
-                    pauseBtn_Click(new object(), new EventArgs());
+                    // pauseBtn_Click(new object(), new EventArgs());
+                    await _spotify.Pause();
                     listBox1.Items.Add("Pausa - Conectado a " + Hora);
                 }
                 else
                 {
                     //call the click button action from pausebtn
-                    pauseBtn_Click(new object(), new EventArgs());
+                    //pauseBtn_Click(new object(), new EventArgs());
+                    await _spotify.Pause();
                     listBox1.Items.Add("Pausa - ReConectado a " + Hora);
                 }
             }
