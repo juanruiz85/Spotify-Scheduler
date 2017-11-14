@@ -225,7 +225,7 @@ namespace Spotify_Scheduler
                 }
                 else
                 {
-                    Connect();
+                    //call the click button action from playbtn
                     playBtn_Click(new object(), new EventArgs());
                     listBox1.Items.Add("Play - ReConectado a " + Hora);
                 }
@@ -241,7 +241,6 @@ namespace Spotify_Scheduler
                 }
                 else
                 {
-                    Connect();
                     //call the click button action from pausebtn
                     pauseBtn_Click(new object(), new EventArgs());
                     listBox1.Items.Add("Pausa - ReConectado a " + Hora);
